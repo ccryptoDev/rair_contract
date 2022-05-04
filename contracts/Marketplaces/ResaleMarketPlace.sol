@@ -70,8 +70,8 @@ contract Resale_MarketPlace is ERC721Holder, AccessControl {
   modifier OnlyItemOwner(address tokenAddress, uint256 tokenId) {
     RAIR_ERC721 itemToken = RAIR_ERC721(tokenAddress);
     require(
-        itemToken.ownerOf(tokenId) == msg.sender,
-        "Sender does not own the item"
+      itemToken.ownerOf(tokenId) == msg.sender,
+      "Sender does not own the item"
     );
     _;
   }
@@ -82,6 +82,10 @@ contract Resale_MarketPlace is ERC721Holder, AccessControl {
     _;
   }
 
+  /// @notice	Constructor
+	/// @dev	Should start up with the treasury and node addresses 
+	/// @param	_treasury		The address of the Treasury
+	/// @param	_nodeAddress		The address of the Node
   constructor(address _treasury, address _nodeAddress) {
     tradeCounter = 0;
     treasury = _treasury;
@@ -90,7 +94,8 @@ contract Resale_MarketPlace is ERC721Holder, AccessControl {
     _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
   }
 
-  // Get individual trade
+  /// @notice Get individual trade
+  /// @param  _trade The id of the Trade
   function getTrade(uint256 _trade) public view returns (Trade memory) {
     Trade memory trade = trades[_trade];
     return trade;
@@ -126,7 +131,7 @@ contract Resale_MarketPlace is ERC721Holder, AccessControl {
   /* 
   List item in the market place for sale
   item unique id and amount of tokens to be put on sale price of item
-  and an additional data parameter if you dont wan to pass data set it to empty string 
+  and an additional data parameter if you dont want to pass data set it to empty string 
   if your sending the transaction through Frontend 
   else if you are send the transaction using etherscan or using nodejs set it to 0x00 
   */
@@ -135,9 +140,9 @@ contract Resale_MarketPlace is ERC721Holder, AccessControl {
     uint256 _price,
     address tokenAddress
   )
-      external
-      OnlyItemOwner(tokenAddress, _itemId)
-      HasTransferApproval(tokenAddress, _itemId)
+    external
+    OnlyItemOwner(tokenAddress, _itemId)
+    HasTransferApproval(tokenAddress, _itemId)
   {
     require(
       tokenIdToSelling[tokenAddress][_itemId] == false,
