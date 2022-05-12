@@ -26,9 +26,10 @@ describe('Token Factory with resale', function () {
   const rairFeePercentage = 9000; // 9.000%
   const nodeFeePercentage = 1000; // 1.000%
 
-  const firstDeploymentAddress = '0x763e69d24a03c0c8B256e470D9fE9e0753504D07';
-  const secondDeploymentAddress =
-    '0x46682cA783d96a4A65390211934D5714CDb788E4';
+  // const firstDeploymentAddress = '0x763e69d24a03c0c8B256e470D9fE9e0753504D07';
+  // const secondDeploymentAddress = '0x46682cA783d96a4A65390211934D5714CDb788E4';
+  const firstDeploymentAddress = '0xfa7a32340ea54A3FF70942B33090a8a9A1B50214';
+	const secondDeploymentAddress = '0xED2AB923364a57cDB6d8f23A3180DfD2CF7E209B';
 
   // Contract addresses are derived from the user's address and the nonce of the transaction,
   //		the generated address will always be the same (on this test file)

@@ -32,3 +32,4 @@ Thumbs.db
 
 # configuration files
 .env*
+bin__/

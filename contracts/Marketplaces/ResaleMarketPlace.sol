@@ -5,7 +5,7 @@ import "../Tokens/RAIR-ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
-import "hardhat/console.sol";
+// import "hardhat/console.sol";
 
 contract Resale_MarketPlace is ERC721Holder, AccessControl {
   event TradeStatusChange(
